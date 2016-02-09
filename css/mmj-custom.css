@@ -1,0 +1,51 @@
+/* Links
+--------------------------------------------- */
+
+.external-link-icons .external-link:after,
+.email-link-icons .email-link:before,
+.pdf-link-icons .pdf-link:before,
+.doc-link-icons .doc-link:before {
+	margin: 0 4px;
+	white-space: nowrap;
+	font-family: FontAwesome;
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	-webkit-font-smoothing: antialiased;
+}
+
+.external-link-icons .external-link:after {
+	content: "\f08e";
+}
+
+.email-link-icons .email-link:before {
+	content: "\f003";
+}
+
+.pdf-link-icons .pdf-link:before {
+	content: "\f1c1";
+}
+
+.pdf-link-icons .pdf-link:after {
+	display: none;
+}
+
+.doc-link-icons .doc-link:before {
+	content: "\f1c2";
+}
+
+.menu .external-link:after {
+	display: none;
+}
+
+.image-link,
+.image-link:hover {
+	border-bottom: none !important;
+	text-decoration: none !important;
+}
+
+.image-link:before,
+.image-link:after {
+	display: none;
+}
