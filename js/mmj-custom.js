@@ -19,4 +19,9 @@ jQuery( document ).ready( function( $ ) {
 	 $( 'li:first-child' ).addClass( 'first' );
 	 $( 'ul, ol' ).parent( 'li' ).addClass( 'parent' );
 
+	 //Remove accessibility menu toggle on mobile.
+	 if ( ! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+	  		 $('nav.mk-main-navigation > ul').addClass( 'sf-menu' );
+	 }
+
 })
