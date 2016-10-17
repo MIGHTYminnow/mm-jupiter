@@ -19,4 +19,11 @@ jQuery( document ).ready( function( $ ) {
 	 $( 'li:first-child' ).addClass( 'first' );
 	 $( 'ul, ol' ).parent( 'li' ).addClass( 'parent' );
 
+	 $('ul.main-navigation-ul').addClass( 'sf-menu' );
+
+	 //Remove accessibility menu toggle on mobile.
+	 if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+	  	$( 'ul.main-navigation-ul').superfish( 'destroy' );
+	 }
+
 })

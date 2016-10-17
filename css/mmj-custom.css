@@ -49,3 +49,52 @@
 .image-link:after {
 	display: none;
 }
+
+a,
+button,
+input[type="text"],
+input[type="search"],
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+textarea,
+input[type="text"]:focus,
+input[type="search"]:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus,
+input[type="submit"]:focus,
+textarea:focus,
+.button {
+	outline: none;
+
+	-webkit-transition: all 0.1s ease-in-out;
+	-moz-transition:    all 0.1s ease-in-out;
+	-ms-transition:     all 0.1s ease-in-out;
+	-o-transition:      all 0.1s ease-in-out;
+	transition:         all 0.1s ease-in-out;
+
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+::-moz-selection {
+	background-color: #333;
+	color: #fff;
+}
+
+::selection {
+	background-color: #333;
+	color: #fff;
+}
+
+/* Main Nav */
+ul.sf-menu.dropdownJavascript li.sfHover > ul.sub-menu {
+  display: block !important;
+  z-index: 10;
+  top: 100% !important;
+}
+
+a:focus,
+body label:focus {
+	border: 1px solid #d1d1d1;
+}

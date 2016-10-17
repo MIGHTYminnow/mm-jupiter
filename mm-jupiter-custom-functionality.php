@@ -34,4 +34,37 @@ function mmj_enqueue_scripts() {
 		MMJ_PLUGIN_VERSION,
 		true
 	);
+
+	// Loads the Superfish JavaScript.
+	wp_enqueue_script(
+		'hoverintent',
+		MMJ_PLUGIN_URL . '/js/hoverIntent.js', 
+		array(),
+		'1.0.0',
+		true
+	);
+
+	wp_enqueue_script(
+		'supersubs',
+		MMJ_PLUGIN_URL . '/js/supersubs.js',
+		array(),
+		'1.0.0',
+		true
+	);
+
+	wp_enqueue_script(
+		'superfish',
+		MMJ_PLUGIN_URL . '/js/superfish.js',
+		array(),
+		'1.0.0',
+		true
+	);
+
+	wp_enqueue_script(
+		'superfish-config',
+		MMJ_PLUGIN_URL . '/js/superfishconfig.js',
+		array(),
+		'1.0.0',
+		true
+	);
 }
