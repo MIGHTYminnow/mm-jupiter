@@ -14,7 +14,7 @@ define( 'MMJ_PLUGIN_VERSION', '1.0.0' );
 
 // Include our helper functions.
 require_once MMJ_PLUGIN_PATH . 'functions.php';
-
+require_once MMJ_PLUGIN_PATH . 'options.php';
 
 add_action( 'wp_enqueue_scripts', 'mmj_enqueue_scripts' );
 /**
@@ -22,10 +22,8 @@ add_action( 'wp_enqueue_scripts', 'mmj_enqueue_scripts' );
  */
 function mmj_enqueue_scripts() {
 
-	wp_enqueue_style(
-		'mmj-style',
-		MMJ_PLUGIN_URL . '/css/mmj-custom.css'
-	);
+	$disable_tab = get_option( 'disable_tab' );
+	$link_option = get_option( 'link_styling' );
 
 	wp_enqueue_script(
 		'mmj-custom-js',
@@ -35,36 +33,60 @@ function mmj_enqueue_scripts() {
 		true
 	);
 
-	// Loads the Superfish JavaScript.
-	wp_enqueue_script(
-		'hoverintent',
-		MMJ_PLUGIN_URL . '/js/hoverIntent.js', 
-		array(),
-		'1.0.0',
-		true
+	wp_enqueue_style(
+		'mmj-style',
+		MMJ_PLUGIN_URL . '/css/mmj-custom.css'
 	);
 
-	wp_enqueue_script(
-		'supersubs',
-		MMJ_PLUGIN_URL . '/js/supersubs.js',
-		array(),
-		'1.0.0',
-		true
-	);
+	// Enqueue superfish if option if set in options.
+	if( empty( $disable_tab ) ) {
+		// Register the Superfish CSS and JavaScript.
+		wp_enqueue_style(
+			'superfish-style',
+			MMJ_PLUGIN_URL . '/css/superfish.css'
+		);
 
-	wp_enqueue_script(
-		'superfish',
-		MMJ_PLUGIN_URL . '/js/superfish.js',
-		array(),
-		'1.0.0',
-		true
-	);
+		wp_enqueue_script(
+			'hoverintent',
+			MMJ_PLUGIN_URL . '/js/hoverIntent.js',
+			array(),
+			MMJ_PLUGIN_VERSION,
+			true
+		);
 
-	wp_enqueue_script(
-		'superfish-config',
-		MMJ_PLUGIN_URL . '/js/superfishconfig.js',
-		array(),
-		'1.0.0',
-		true
-	);
+		wp_enqueue_script(
+			'supersubs',
+			MMJ_PLUGIN_URL . '/js/supersubs.js',
+			array(),
+			MMJ_PLUGIN_VERSION,
+			true
+		);
+
+		wp_enqueue_script(
+			'superfish',
+			MMJ_PLUGIN_URL . '/js/superfish.js',
+			array(),
+			MMJ_PLUGIN_VERSION,
+			true
+		);
+
+		wp_enqueue_script(
+			'superfish-config',
+			MMJ_PLUGIN_URL . '/js/superfishconfig.js',
+			array(),
+			MMJ_PLUGIN_VERSION,
+			true
+		);
+	}
+
+	// Enqueue custom link icons if set in options.
+	if( empty( $link_styling ) ) {
+		wp_enqueue_script(
+			'mmj-custom-link-icons',
+			MMJ_PLUGIN_URL . '/js/linkIcons.js',
+			array(),
+			MMJ_PLUGIN_VERSION,
+			true
+		);
+	}
 }
