@@ -1,10 +1,10 @@
 /* Links
 --------------------------------------------- */
 
-.external-link-icons .external-link:after,
-.email-link-icons .email-link:before,
-.pdf-link-icons .pdf-link:before,
-.doc-link-icons .doc-link:before {
+.external-link:after,
+.email-link:before,
+.pdf-link:before,
+.doc-link:before {
 	margin: 0 4px;
 	white-space: nowrap;
 	font-family: FontAwesome;
@@ -13,25 +13,26 @@
 	font-style: normal;
 	font-variant: normal;
 	-webkit-font-smoothing: antialiased;
+	display: inline;
 }
 
-.external-link-icons .external-link:after {
+.external-link:after {
 	content: "\f08e";
 }
 
-.email-link-icons .email-link:before {
+.email-link:before {
 	content: "\f003";
 }
 
-.pdf-link-icons .pdf-link:before {
+.pdf-link:before {
 	content: "\f1c1";
 }
 
-.pdf-link-icons .pdf-link:after {
+.pdf-link:after {
 	display: none;
 }
 
-.doc-link-icons .doc-link:before {
+.doc-link:before {
 	content: "\f1c2";
 }
 
@@ -50,14 +51,3 @@
 	display: none;
 }
 
-/* Main Nav */
-ul.sf-menu.dropdownJavascript li.sfHover > ul.sub-menu {
-  display: block !important;
-  z-index: 10;
-  top: 100% !important;
-}
-
-a:focus,
-body label:focus {
-	border: 1px solid #d1d1d1;
-}
