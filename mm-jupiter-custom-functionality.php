@@ -91,8 +91,8 @@ function mmj_enqueue_scripts() {
 	}
 }
 
-register_activation_hook( __FILE__, 'activation_hook' );
 //Activation Hook - Confirm site is using Jupiter.
+register_activation_hook( __FILE__, 'activation_hook' );
 function activation_hook() {
 
 	if ( 'jupiter' != basename( TEMPLATEPATH ) ) {
@@ -100,3 +100,14 @@ function activation_hook() {
 		wp_die( 'Sorry, you can&rsquo;t activate unless you have installed Jupiter' );
 	}
 }
+
+//Disables plugin if another theme is activated.
+add_action('wp_head','disable_plugins');
+function disable_plugins() {
+
+	$theme = wp_get_theme();
+	if ('jupiter' !== $theme->name || 'jupiter' !== $theme->parent_theme) {
+	    deactivate_plugins( plugin_basename( __FILE__ ) );
+	}
+}
+
