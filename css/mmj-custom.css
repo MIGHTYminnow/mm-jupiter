@@ -3,7 +3,7 @@
 
 .external-link:after,
 .email-link:before,
-.pd.pdf-link:before,
+.pdf-link:before,
 .doc-link:before {
 	margin: 0 4px;
 	white-space: nowrap;
