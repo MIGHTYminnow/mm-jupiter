@@ -80,7 +80,7 @@ function mmj_enqueue_scripts() {
 	}
 
 	// Enqueue custom link icons if set in options.
-	if( empty( $link_styling ) ) {
+	if( ! empty( $link_option ) ) {
 		wp_enqueue_script(
 			'mmj-custom-link-icons',
 			MMJ_PLUGIN_URL . '/js/linkIcons.js',
