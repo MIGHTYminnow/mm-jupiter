@@ -90,3 +90,13 @@ function mmj_enqueue_scripts() {
 		);
 	}
 }
+
+register_activation_hook( __FILE__, 'activation_hook' );
+//Activation Hook - Confirm site is using Jupiter.
+function activation_hook() {
+
+	if ( 'jupiter' != basename( TEMPLATEPATH ) ) {
+		deactivate_plugins( plugin_basename( __FILE__ ) );
+		wp_die( 'Sorry, you can&rsquo;t activate unless you have installed Jupiter' );
+	}
+}
