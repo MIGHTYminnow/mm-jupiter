@@ -97,12 +97,12 @@ function activation_hook() {
 
 	if ( 'jupiter' != basename( TEMPLATEPATH ) ) {
 		deactivate_plugins( plugin_basename( __FILE__ ) );
-		wp_die( 'Sorry, you can&rsquo;t activate unless you have installed Jupiter' );
+		wp_die( 'Sorry, you can&rsquo;t activate unless you have activated Jupiter or Jupiter Child' );
 	}
 }
 
 //Disables plugin if another theme is activated.
-add_action('wp_head','disable_plugins');
+add_action('admin_init','disable_plugins');
 function disable_plugins() {
 
 	$theme = wp_get_theme();
