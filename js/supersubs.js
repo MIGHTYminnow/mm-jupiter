@@ -48,8 +48,7 @@
 				var liFloat = $LIs.css('white-space','nowrap').css('float');
 				// remove width restrictions and floats so elements remain vertically stacked
 				$ul.add($LIs).add($As).css({
-					'float' : 'none',
-					'width'	: 'auto'
+					'float' : 'none'
 				});
 				// this ul will now be shrink-wrapped to longest li due to position:absolute
 				// so save its width as ems.
@@ -61,7 +60,7 @@
 				else if (emWidth < o.minWidth)	{ emWidth = o.minWidth; }
 				emWidth += 'em';
 				// set ul to width in ems
-				$ul.css('width',emWidth);
+				//$ul.css('width',emWidth);
 				// restore li floats to avoid IE bugs
 				// set li width to full width of this ul
 				// revert white-space to normal
