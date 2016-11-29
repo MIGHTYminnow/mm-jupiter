@@ -92,22 +92,21 @@ function mmj_enqueue_scripts() {
 }
 
 //Activation Hook - Confirm site is using Jupiter.
-register_activation_hook( __FILE__, 'activation_hook' );
-function activation_hook() {
+register_activation_hook( __FILE__, 'mmj_activation_hook' );
+function mmj_activation_hook() {
 
 	if ( 'jupiter' != basename( TEMPLATEPATH ) ) {
 		deactivate_plugins( plugin_basename( __FILE__ ) );
-		wp_die( 'Sorry, you can&rsquo;t activate unless you have activated Jupiter or Jupiter Child' );
+		wp_die( 'Sorry, you can&rsquo;t activate unless you have installed Jupiter' );
 	}
 }
 
 //Disables plugin if another theme is activated.
-add_action('admin_init','disable_plugins');
-function disable_plugins() {
-
+add_action('after_switch_theme','mmj_disable_plugins');
+function mmj_disable_plugins() {
 	$theme = wp_get_theme();
 	if ('jupiter' !== $theme->name || 'jupiter' !== $theme->parent_theme) {
-	    deactivate_plugins( plugin_basename( __FILE__ ) );
+		deactivate_plugins( plugin_basename( __FILE__ ) );
 	}
 }
 

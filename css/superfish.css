@@ -5,6 +5,12 @@ ul.sf-menu.dropdownJavascript li.sfHover > ul.sub-menu {
   top: 100% !important;
 }
 
+ul.main-navigation-ul.sf-menu.dropdownJavascript li ul.sub-menu > li.sfHover > ul {
+  top: 0 !important;
+}
+
+ul.sf-menu.dropdownJavascript li.sfHover > ul.sub-menu {
+
 a:focus,
 body label:focus {
 	border: 1px solid #d1d1d1;
