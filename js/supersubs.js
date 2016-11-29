@@ -60,7 +60,7 @@
 				else if (emWidth < o.minWidth)	{ emWidth = o.minWidth; }
 				emWidth += 'em';
 				// set ul to width in ems
-				//$ul.css('width',emWidth);
+				$ul.css('width',emWidth);
 				// restore li floats to avoid IE bugs
 				// set li width to full width of this ul
 				// revert white-space to normal
