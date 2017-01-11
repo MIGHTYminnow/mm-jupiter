@@ -89,6 +89,14 @@ function mmj_enqueue_scripts() {
 			MMJ_PLUGIN_VERSION,
 			true
 		);
+
+		wp_enqueue_style(
+			'mmj-link-icons',
+			MMJ_PLUGIN_URL . '/css/linkIcons.css',
+			array(),
+			MMJ_PLUGIN_VERSION,
+			true
+		);
 	}
 
 	// Open links in new tab if set in options.
