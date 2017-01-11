@@ -92,10 +92,7 @@ function mmj_enqueue_scripts() {
 
 		wp_enqueue_style(
 			'mmj-link-icons',
-			MMJ_PLUGIN_URL . '/css/linkIcons.css',
-			array(),
-			MMJ_PLUGIN_VERSION,
-			true
+			MMJ_PLUGIN_URL . '/css/linkIcons.css'
 		);
 	}
 

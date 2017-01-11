@@ -32,7 +32,7 @@ function register_mmjsettings() {
 	);
 	add_settings_field(
 		'link_styling_field',
-		__( 'Add Icons to External Links?', 'mmj' ),
+		__( 'Add Custom Link Icons?', 'mmj' ),
 		'mmj_disable_link_styling_field_render',
 		'mmjPluginPage',
 		'mmj_pluginPage'
