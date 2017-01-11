@@ -22,10 +22,6 @@ jQuery( document ).ready( function( $ ) {
 	$( 'li:first-child' ).addClass( 'first' );
 	$( 'ul, ol' ).parent( 'li' ).addClass( 'parent' );
 
-	// External Links.
-	var h = window.location.host.toLowerCase();
-	$( '[href^="http"]' ).not( '[href*="' + h + '"]' ).addClass( 'external-link' ).attr( "target", "_blank" );
-
 	if ( window.addEventListener ) {
 	 window.addEventListener( 'hashchange', mmj_skiplinks, false );
 	} else { // IE8 and earlier.

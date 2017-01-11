@@ -24,6 +24,7 @@ function mmj_enqueue_scripts() {
 
 	$disable_tab = get_option( 'disable_tab' );
 	$link_option = get_option( 'link_styling' );
+	$external_links = get_option( 'external_links' );
 
 	wp_enqueue_script(
 		'mmj-custom-js',
@@ -84,6 +85,17 @@ function mmj_enqueue_scripts() {
 		wp_enqueue_script(
 			'mmj-custom-link-icons',
 			MMJ_PLUGIN_URL . '/js/linkIcons.js',
+			array(),
+			MMJ_PLUGIN_VERSION,
+			true
+		);
+	}
+
+	// Open links in new tab if set in options.
+	if( empty( $external_links ) ) {
+		wp_enqueue_script(
+			'mmj-external-links',
+			MMJ_PLUGIN_URL . '/js/externalLinks.js',
 			array(),
 			MMJ_PLUGIN_VERSION,
 			true
