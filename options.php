@@ -22,6 +22,7 @@ function mmj_add_settings_page() {
 function register_mmjsettings() {
 	register_setting( 'mmjPluginPage', 'link_styling' );
 	register_setting( 'mmjPluginPage', 'disable_tab' );
+	register_setting( 'mmjPluginPage', 'external_links' );
 
 	add_settings_section(
 		'mmj_pluginPage',
@@ -43,6 +44,13 @@ function register_mmjsettings() {
 		'mmjPluginPage',
 		'mmj_pluginPage'
 	);
+	add_settings_field(
+		'external_links_field',
+		__( 'Open External Links In Same Tab?' ),
+		'mmj_external_links_field_render',
+		'mmjPluginPage',
+		'mmj_pluginPage'
+	);
 }
 
 function mmj_disable_link_styling_field_render() {
@@ -56,6 +64,13 @@ function mmj_disable_keyboard_field_render() {
 	$options = get_option( 'disable_tab' );
 	?>
 	<input type="checkbox" name="disable_tab" value="1" <?php checked( 1, $options['disable_tab'] ); ?>/>
+	<?php
+}
+
+function mmj_external_links_field_render() {
+	$options = get_option( 'external_links' );
+	?>
+	<input type="checkbox" name="external_links" value="1" <?php checked( 1, $options['external_links'] ); ?>/>
 	<?php
 }
 
