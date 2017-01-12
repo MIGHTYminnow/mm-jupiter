@@ -4,6 +4,10 @@
 
 jQuery( document ).ready( function( $ ) {
 
+	// External Links.
+	var h = window.location.host.toLowerCase();
+	$( '[href^="http"]' ).not( '[href*="' + h + '"]' ).addClass( 'external-link' );
+
 	// Add classes to different types of links.
 	$( 'a[href^="mailto:"]' ).addClass( 'email-link' );
 	$( 'a[href$=".pdf"]' ).attr({ "target":"_blank" }).addClass( 'pdf-link' );
