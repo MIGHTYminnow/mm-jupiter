@@ -122,3 +122,13 @@ function mmj_disable_plugins() {
 	}
 }
 
+// Make WCSSC compatible with Jupiter 
+add_action( 'wp_loaded', 'mmj_widget_css_classes_frontend_hook' );
+
+function mmj_widget_css_classes_frontend_hook() {
+	if ( ! is_admin() ) {
+		remove_filter( 'dynamic_sidebar_params', array( 'WCSSC', 'add_widget_classes' ) );
+		add_filter( 'dynamic_sidebar_params', array( 'WCSSC', 'add_widget_classes' ), 8 );
+	}
+}
+
