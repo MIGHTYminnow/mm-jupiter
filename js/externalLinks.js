@@ -4,8 +4,11 @@
 ( function( $ ) {
 	/** Open external links and files with extensions .pdf, .doc, .docx, .mp3, .m4a, and .wav in a new window. */
 	var h = window.location.host.toLowerCase();
+
+	/* Remove the initial www. (if exists) because we will add it later to check vs www and non-www too */
+	h = h.replace(/^www\./i, '');
 	$(
-		"a[href^='http']:not([href*='" + h + "' i]), "
+		"a[href^='http']:not([href*='" + h + "' i]):not([href*=www.'" + h + "' i]), "
 		+ "form[action^='http']:not([action*='" + h + "' i]), "
 		+ "a[href$='.doc' i], "
 		+ "a[href$='.docx' i], "
