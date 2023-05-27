@@ -8,7 +8,6 @@ function mmj_output_skip_links() {
 		<section>
 		  <h2 class="screen-reader-text">Skip links</h2>
 		  <ul class="mmj-skip-link">
-		    <li><a href="#mk-header-1" class="screen-reader-shortcut"> Skip to primary navigation</a></li>
 		    <li><a href="#theme-page" class="screen-reader-shortcut"> Skip to content</a></li>
 		    <li><a href="#mk-footer" class="screen-reader-shortcut"> Skip to footer</a></li>
 		  </ul>
