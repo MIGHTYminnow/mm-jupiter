@@ -22,9 +22,24 @@
 		'wav',
 	];
 
+	function isValidURL( urlString ) {
+		try {
+			new URL( urlString );
+			return true;
+		} catch ( error ) {
+			return false;
+		}
+	}
+
 	/* Check all links in the page to add the _blank target when applies. */
 	$( 'a' ).each( function() {
-		var url = new URL( $( this ).attr( 'href' ).toLowerCase() );
+		/* Validate that the HREF is a valid URL. */
+		var href = $( this ).attr( 'href' ).toLowerCase();
+		if ( ! isValidURL( href ) ) {
+			return true;
+		}
+
+		var url = new URL( href );
 		var extension = url.pathname.split( '.' ).pop();
 
 		/*
@@ -43,7 +58,13 @@
 
 	/* Check all forms in the page to add the _blank target when applies. */
 	$( 'form' ).each( function() {
-		var url = new URL( $( this ).attr( 'action' ).toLowerCase() );
+		/* Validate that the HREF is a valid URL. */
+		var action = $( this ).attr( 'action' ).toLowerCase();
+		if ( ! isValidURL( action ) ) {
+			return true;
+		}
+
+		var url = new URL( action );
 
 		/*
 		Add the _blank target parameter to the link if the link host
