@@ -2,24 +2,60 @@
  * External Links
  */
 ( function( $ ) {
-	/** Open external links and files with extensions .pdf, .doc, .docx, .mp3, .m4a, and .wav in a new window. */
-	var h = window.location.host.toLowerCase();
+	/*
+	Get the current page host:
+	- in lowercase for easier comparisons.
+	- without www. (in case it has it) because we will add it on another variable.
+	*/
+	var host = window.location.host.toLowerCase().replace(/^www\./i, '');
 
-	/* Remove the initial www. (if exists) because we will add it later to check vs www and non-www too */
-	h = h.replace(/^www\./i, '');
-	$(
-		"a[href^='http']:not([href*='" + h + "' i]):not([href*=www.'" + h + "' i]), "
-		+ "form[action^='http']:not([action*='" + h + "' i]), "
-		+ "a[href$='.doc' i], "
-		+ "a[href$='.docx' i], "
-		+ "a[href$='.m4a' i], "
-		+ "a[href$='.mp3' i], "
-		+ "a[href$='.pdf' i], "
-		+ "a[href$='.wav' i]"
-	).attr( 'target', '_blank' );
+	/* Get the current page host with www. */
+	var host_www = 'www.' + host;
 
-	/** Add classes to Phone, PDF and E-mail links for easier use. */
-	$( 'a[href*=".pdf" i]' ).addClass( 'pdfLink' );
+	/* List of file extensions that we want to open on new tabs. */
+	var extensions = [
+		'doc',
+		'docx',
+		'm4a',
+		'mp3',
+		'pdf',
+		'wav',
+	];
+
+	/* Check all links in the page to add the _blank target when applies. */
+	$( 'a' ).each( function() {
+		var url = new URL( $( this ).attr( 'href' ).toLowerCase() );
+		var extension = url.pathname.split( '.' ).pop();
+
+		/*
+		Add the _blank target parameter to the link if:
+			A) the link host is not the same than the site host without www or with www.
+			OR
+			B) the extension of the link is included on the list of extensions.
+		*/
+		if (
+			( url.host != host && url.host != host_www )
+			|| extensions.includes( extension )
+		) {
+			$( this ).attr( 'target', '_blank' );
+		}
+	} );
+
+	/* Check all forms in the page to add the _blank target when applies. */
+	$( 'form' ).each( function() {
+		var url = new URL( $( this ).attr( 'action' ).toLowerCase() );
+
+		/*
+		Add the _blank target parameter to the link if the link host
+		is not the same than the site host without www or with www.
+		*/
+		if ( url.host != host && url.host != host_www ) {
+			$( this ).attr( 'target', '_blank' );
+		}
+	} );
+
+	/* Add classes to PDF, E-mail and Phone links for easier use. */
+	$( 'a[href$=".pdf" i]' ).addClass( 'pdfLink' );
 	$( 'a[href^="mailto:" i]').addClass( 'emailLink' );
 	$( 'a[href^="tel:" i]').addClass( 'phoneLink' );
 } )( jQuery );
