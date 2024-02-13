@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Mm Jupiter Custom Functionality
  * Description: Custom functionality for Jupiter Theme.
- * Version: 1.0.4
+ * Version: 1.0.5
  * Author: MIGHTYminnow Web Studio
  * Author URI: http://mightyminnow.com
  */
@@ -10,7 +10,7 @@
 define( 'MMJ_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'MMJ_PLUGIN_INCLUDES_PATH', MMJ_PLUGIN_PATH . 'includes/' );
 define( 'MMJ_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-define( 'MMJ_PLUGIN_VERSION', '1.0.4' );
+define( 'MMJ_PLUGIN_VERSION', '1.0.5' );
 
 // Include our helper functions.
 require_once MMJ_PLUGIN_PATH . 'functions.php';
