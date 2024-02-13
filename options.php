@@ -53,6 +53,9 @@ function register_mmjsettings() {
 	);
 }
 
+function mmj_options_section_callback() {
+}
+
 function mmj_disable_link_styling_field_render() {
 	$options = get_option( 'link_styling' );
 	?>
