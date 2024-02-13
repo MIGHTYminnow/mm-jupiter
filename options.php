@@ -57,23 +57,23 @@ function mmj_options_section_callback() {
 }
 
 function mmj_disable_link_styling_field_render() {
-	$options = get_option( 'link_styling' );
+	$option = get_option( 'link_styling' );
 	?>
-	<input type="checkbox" name="link_styling" value="1" <?php checked( 1, $options['link_styling'] ); ?>/>
+	<input type="checkbox" name="link_styling" value="1" <?php checked( 1, $option ); ?>/>
 	<?php
 }
 
 function mmj_disable_keyboard_field_render() {
-	$options = get_option( 'disable_tab' );
+	$option = get_option( 'disable_tab' );
 	?>
-	<input type="checkbox" name="disable_tab" value="1" <?php checked( 1, $options['disable_tab'] ); ?>/>
+	<input type="checkbox" name="disable_tab" value="1" <?php checked( 1, $option ); ?>/>
 	<?php
 }
 
 function mmj_external_links_field_render() {
-	$options = get_option( 'external_links' );
+	$option = get_option( 'external_links' );
 	?>
-	<input type="checkbox" name="external_links" value="1" <?php checked( 1, $options['external_links'] ); ?>/>
+	<input type="checkbox" name="external_links" value="1" <?php checked( 1, $option ); ?>/>
 	<?php
 }
 
